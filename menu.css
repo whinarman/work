@@ -1,0 +1,256 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* RESET */
+  html {
+    scroll-behavior: smooth;
+}
+
+ img {
+    display: block;
+    width: 100%;
+    height: auto;
+ } 
+
+/* ROOT IDENTITIES */
+  :root {
+    --PADDING: 10px;
+    --MARGIN: 5px;
+    /* FONTS */
+    --FSMALL: 20px;
+    --FSIZE: clamp(1rem, 2.2vh, 1.5rem);
+    --FFAMILY: monospace;
+    /* COLORS */
+    --BGCOLR-LIGHT: #fff;
+    --BGCOLOR-DARK: #000;
+    --LCOLOR: #fff;
+    --DCOLOR: #333;
+    --CCOLOR: gold;
+    /* BORDERS */
+    --BORDER: 1px solid #333;
+    --BORDER-RAD: 5px;
+ } 
+
+
+ /* ENTITIES */
+
+ body {
+    font-size: var(--FSIZE);
+    font-family:var(--FFAMILY);
+    background-color: var(--BGCOLR-LIGHT);
+    min-height: 100vh;
+/*     margin-left: auto;
+    margin-right: auto; */
+/*     border-left: var(--BORDER);
+    border-right: var(--BORDER); */
+/*     margin: var(--MARGIN); */
+ }
+
+ .menu {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    color: var(--LCOLOR);
+    background-color: var(--BGCOLOR-DARK);
+    font-size: 15px;
+ }
+
+ .menu h1 {
+    padding: 5px;
+ }
+
+ .menu-button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    border: none;
+ }
+
+ .menu-icon,
+ .menu-icon::before,
+ .menu-icon::after {
+    position: absolute;
+    width: 30px;
+    height: 5px;
+    background-color: var(--BGCOLR-LIGHT);
+    transition: all 0.5s;
+ }
+
+ .menu-icon::before,
+ .menu-icon::after {content: "";}
+
+ .menu-icon::before {
+    transform: translate(-15px, -10px);
+ }
+
+ .menu-icon::after {
+    transform: translate(-15px, 10px);
+ }
+
+ nav {
+    display: none;
+    transform-origin: top center;
+    background-color: var(--BGCOLOR-DARK);
+    animation: Slide 1s ease-in-out forwards;
+ }
+
+ @keyframes Slide {
+    0% {
+        transform: scaleY(0);
+    }
+
+    80% {
+        transform: scaleY(120%);
+    }
+
+    100% {
+        transform: scaleY(100%);
+    }
+ }
+
+ nav li {
+    margin-left: var(--MARGIN);
+    padding: var(--MARGIN);
+    font-size: 20px;
+    border-top: var(--BORDER);
+ }
+
+ a:any-link {
+    color: var(--LCOLOR);
+    text-decoration: none;
+ }
+
+ a:hover,
+ a:focus {
+    color: red;
+ }
+
+ :is(header:hover, header:focus-within) .menu-icon {
+    background-color: transparent;
+    transform: rotate(720deg);
+}
+:is(header:hover, header:focus-within) .menu-icon::before {
+    transform: translateX(-15px) rotate(45deg);
+}
+:is(header:hover, header:focus-within) .menu-icon::after {
+    transform: translateX(-15px) rotate(-45deg);
+}
+:is(header:hover, header:focus-within) nav {
+   display: block;
+}
+
+article {
+    background-color: rgb(10, 1, 65);
+    color: var(--LCOLOR);
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+article h2 {
+    color: var(--CCOLOR);
+    padding-top: 50px;
+    font-size: 18px;
+    padding-bottom: var(--PADDING);
+}
+
+.button {
+    padding: 25px;
+}
+
+button {
+    padding: var(--MARGIN);
+    font-size: 15px;
+    background-color: var(--CCOLOR);
+}
+
+.container,
+.container1 {
+    width: 250px;
+    height: 400px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1 {
+    animation-name: Rotate;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+    animation-direction: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes Rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.container:first-child {
+    padding: var(--PADDING);
+    transform: translateX(-20px);
+    width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container:last-child {
+    transform: translateX(20px);
+    width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--PADDING);
+}
+
+
+main h3 {
+    padding: var(--PADDING);
+    color: rebeccapurple;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+}
+
+tr, td{
+    border: var(--BORDER);
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+    padding: var(--PADDING);
+    background-color: var(--LCOLOR);
+    color: var(--DCOLOR);
+}
+
+.price,
+.tacos,
+.quantity {
+    text-align: center;
+}
+
+
+footer {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--BGCOLOR-DARK);
+    color: var(--LCOLOR);
+    text-align: center;
+    padding: var(--PADDING);
+} 
